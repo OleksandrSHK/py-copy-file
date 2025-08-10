@@ -7,11 +7,12 @@ def copy_file(command: str) -> None:
     command_list = command.split()
     if len(command_list) != 3:
         return
-    if command_list[0] != "cp" or command_list[1] == command_list[2]:
+    _, source_path, destination_path = command_list
+    if _ != "cp" or source_path == destination_path:
         return
-    if not os.path.exists(command_list[1]):
+    if not os.path.exists(source_path):
         return
-    with (open(command_list[1], "r") as file_in,
+    with (open(source_path, "r") as file_in,
           open(command_list[2], "w") as file_out):
         read_content = file_in.read()
         file_out.write(read_content)
