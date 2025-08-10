@@ -5,9 +5,9 @@ def copy_file(command: str) -> None:
     if command == "":
         return
     command_list = command.split()
-    if len(command_list) == 3 and command_list[0] != "cp":
+    if len(command_list) != 3:
         return
-    if len(command_list) == 3 and command_list[1] == command_list[2]:
+    if command_list[0] != "cp" or command_list[1] == command_list[2]:
         return
     if not os.path.exists(command_list[1]):
         return
